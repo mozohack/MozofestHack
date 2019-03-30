@@ -24,6 +24,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
     var lineColor = UIColor.white
     var previousPoint: SCNVector3?
     
+    //static reference point for calc.
     var pulsarX = -0.3
     var pulsarY = -0.3
     var pulsarZ = -0.3
@@ -43,7 +44,8 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
-        
+  
+        //change the positions to a much better location in this room for pitching.
         let position1 = SCNVector3(0,0,-0.58)
         let position2 = SCNVector3(-1.27,-0,1.08)
         let position3 = SCNVector3(1.18,0,-1.5)
