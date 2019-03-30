@@ -80,6 +80,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         
         
         //random stars.
+        // stars are not created properly create more stars in other locations.
         for _ in 1...250{
             
             let lowerValue = -15
@@ -112,6 +113,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         return designNode
     }
     
+    //try creating a function rather than all the diff planets.
     func planet1(at position:SCNVector3) -> SCNNode{
         
         let random = SCNSphere(radius: 0.11)
@@ -246,6 +248,18 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         
         // Run the view's session
         sceneView.session.run(configuration)  
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Pause the view's session
+        sceneView.session.pause()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Release any cached data, images, etc that aren't in use.
     }
     
     
