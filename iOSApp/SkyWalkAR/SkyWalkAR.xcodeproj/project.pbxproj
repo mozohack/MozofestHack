@@ -15,6 +15,9 @@
 		2A660910224FB6D40051ED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A66090F224FB6D40051ED52 /* GoogleService-Info.plist */; };
 		2A660912224FCCE40051ED52 /* dataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A660911224FCCE40051ED52 /* dataTableViewController.swift */; };
 		2A660914224FCD4B0051ED52 /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A660913224FCD4B0051ED52 /* customButton.swift */; };
+		2A660916224FD2540051ED52 /* databaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A660915224FD2540051ED52 /* databaseTableViewCell.swift */; };
+		2A660919224FD9C30051ED52 /* customView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A660918224FD9C30051ED52 /* customView.swift */; };
+		2A66091B224FE60F0051ED52 /* vectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66091A224FE60F0051ED52 /* vectorViewController.swift */; };
 		91A9C248E2430DEE83E519C1 /* Pods_SkyWalkAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F943161C5936D2021E44523D /* Pods_SkyWalkAR.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		2A66090F224FB6D40051ED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A660911224FCCE40051ED52 /* dataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataTableViewController.swift; sourceTree = "<group>"; };
 		2A660913224FCD4B0051ED52 /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		2A660915224FD2540051ED52 /* databaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseTableViewCell.swift; sourceTree = "<group>"; };
+		2A660918224FD9C30051ED52 /* customView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customView.swift; sourceTree = "<group>"; };
+		2A66091A224FE60F0051ED52 /* vectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vectorViewController.swift; sourceTree = "<group>"; };
 		2EAE0AD9CBB9DB41CA2041D3 /* Pods-SkyWalkAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWalkAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWalkAR/Pods-SkyWalkAR.release.xcconfig"; sourceTree = "<group>"; };
 		879B0A5B077042A6D7A2310B /* Pods-SkyWalkAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWalkAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWalkAR/Pods-SkyWalkAR.debug.xcconfig"; sourceTree = "<group>"; };
 		F943161C5936D2021E44523D /* Pods_SkyWalkAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkyWalkAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,15 +75,26 @@
 			children = (
 				2A6608FD224FB3B80051ED52 /* AppDelegate.swift */,
 				2A6608FF224FB3B80051ED52 /* ViewController.swift */,
+				2A66091A224FE60F0051ED52 /* vectorViewController.swift */,
 				2A660911224FCCE40051ED52 /* dataTableViewController.swift */,
-				2A660913224FCD4B0051ED52 /* customButton.swift */,
+				2A660917224FD2650051ED52 /* Supporting Files */,
 				2A660901224FB3B80051ED52 /* Main.storyboard */,
-				2A660904224FB3BA0051ED52 /* Assets.xcassets */,
 				2A660906224FB3BA0051ED52 /* LaunchScreen.storyboard */,
+				2A660904224FB3BA0051ED52 /* Assets.xcassets */,
 				2A660909224FB3BA0051ED52 /* Info.plist */,
 				2A66090F224FB6D40051ED52 /* GoogleService-Info.plist */,
 			);
 			path = SkyWalkAR;
+			sourceTree = "<group>";
+		};
+		2A660917224FD2650051ED52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A660913224FCD4B0051ED52 /* customButton.swift */,
+				2A660918224FD9C30051ED52 /* customView.swift */,
+				2A660915224FD2540051ED52 /* databaseTableViewCell.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		30581A6DE329F1AE43F1E9E6 /* Frameworks */ = {
@@ -217,9 +234,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A660914224FCD4B0051ED52 /* customButton.swift in Sources */,
+				2A66091B224FE60F0051ED52 /* vectorViewController.swift in Sources */,
+				2A660919224FD9C30051ED52 /* customView.swift in Sources */,
 				2A660912224FCCE40051ED52 /* dataTableViewController.swift in Sources */,
 				2A660900224FB3B80051ED52 /* ViewController.swift in Sources */,
 				2A6608FE224FB3B80051ED52 /* AppDelegate.swift in Sources */,
+				2A660916224FD2540051ED52 /* databaseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FUFV9ADLZ;
 				INFOPLIST_FILE = SkyWalkAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,6 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FUFV9ADLZ;
 				INFOPLIST_FILE = SkyWalkAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
