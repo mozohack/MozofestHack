@@ -212,6 +212,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cardView" destination="QUa-UI-5tW" id="Rkt-AD-AHR"/>
+                                            <outlet property="xlab" destination="bHg-zs-GGd" id="9fF-CF-ePi"/>
+                                            <outlet property="ylab" destination="ibU-Pa-CTt" id="Zgv-Ra-hWs"/>
+                                            <outlet property="zlab" destination="KGf-Tl-QjS" id="K3m-J6-qhq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
