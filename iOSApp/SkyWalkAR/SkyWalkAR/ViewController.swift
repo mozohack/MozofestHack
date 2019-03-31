@@ -39,6 +39,9 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
         
+        //try to make it black so that the planets are seen properly.
+        sceneView.backgroundColor = UIColor.black
+        
         // Create a new scene
         let scene = SCNScene()
         
@@ -48,9 +51,9 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         //change the positions to a much better location in this room for pitching.
         let position1 = SCNVector3(0,0,-0.58)
         let position2 = SCNVector3(-1.27,-0,1.08)
-        let position3 = SCNVector3(1.18,0,-1.5)
+        let position3 = SCNVector3(2.18,0,-1.7)
         let position4 = SCNVector3(-5.32,0,-2.28)
-        let position5 = SCNVector3(8.12,0,-3.50)
+        let position5 = SCNVector3(6.12,0,-3.50)
         let position6 = SCNVector3(-30.22,0,-5.30)
         let position7 = SCNVector3(10.42,0,-7.77)
         let position8 = SCNVector3(-20.50,0,-11.09)
@@ -91,7 +94,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
             let Zupper = 2
             let result = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
             let Zresult = Int(arc4random_uniform(UInt32(Zupper - Zlower + 1))) +   Zlower
-            let position10 = SCNVector3(Float(result),-(Float(CGFloat(arc4random()%20))),Float(Zresult))
+            let position10 = SCNVector3(Float(result),-(Float(CGFloat(arc4random()%50))),Float(Zresult))
             let star = Stars(at: position10)
             scene.rootNode.addChildNode(star)
         }
@@ -142,7 +145,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         let designNode = SCNNode(geometry:random)
         designNode.position = position
         
-        let action = SCNAction.rotate(by: 160 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 8)
+        let action = SCNAction.rotate(by: 160 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 6)
         let repeatAction = SCNAction.repeatForever(action)
         designNode.runAction(repeatAction)
         return designNode
@@ -155,7 +158,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         random.firstMaterial = material
         let designNode = SCNNode(geometry:random)
         designNode.position = position
-        let action = SCNAction.rotate(by: 250 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 8)
+        let action = SCNAction.rotate(by: 250 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 7.5)
         let repeatAction = SCNAction.repeatForever(action)
         designNode.runAction(repeatAction)
         return designNode
@@ -168,7 +171,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         random.firstMaterial = material
         let designNode = SCNNode(geometry:random)
         designNode.position = position
-        let action = SCNAction.rotate(by: 360 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 8)
+        let action = SCNAction.rotate(by: 360 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 10)
         let repeatAction = SCNAction.repeatForever(action)
         designNode.runAction(repeatAction)
         return designNode
@@ -181,7 +184,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         random.firstMaterial = material
         let designNode = SCNNode(geometry:random)
         designNode.position = position
-        let action = SCNAction.rotate(by: 170 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 8)
+        let action = SCNAction.rotate(by: 170 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 5)
         let repeatAction = SCNAction.repeatForever(action)
         designNode.runAction(repeatAction)
         return designNode
@@ -194,7 +197,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         random.firstMaterial = material
         let designNode = SCNNode(geometry:random)
         designNode.position = position
-        let action = SCNAction.rotate(by: 40 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 8)
+        let action = SCNAction.rotate(by: 40 * CGFloat((Double.pi)/180), around: SCNVector3(x:0, y:1, z:0), duration: 9)
         let repeatAction = SCNAction.repeatForever(action)
         designNode.runAction(repeatAction)
         return designNode
@@ -264,7 +267,86 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.buttonHighlighted = self.button.isHighlighted
+        }
+    }
+    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        
+        guard let pointOfView = sceneView.pointOfView else { return }
+        
+        let transform = pointOfView.transform
+        let orientation = SCNVector3(-transform.m31, -transform.m32, transform.m33)
+        let location = SCNVector3(transform.m41, transform.m42, transform.m43)
+        let currentPositionOfCamera = orientation + location
+        print(currentPositionOfCamera)
+        
+        for _ in 1...20{
+            
+            xcor.text = String((orientation.x + location.x) - Float(pulsarZ))
+            ycor.text = String((orientation.y + location.y) - Float(pulsarY))
+            zcor.text = String((orientation.z + location.z) - Float(pulsarX))
+        }
+        print(String((orientation.x + location.x) - Float(pulsarZ)))
+        print(String((orientation.y + location.y) - Float(pulsarY)))
+        print(String((orientation.z + location.z) - Float(pulsarX)))
+        
+        
+        let x = ["Xcordinate" : xcor.text!, "Ycordinate" : ycor.text!, "Zcordinate": zcor.text!] as [String : Any]
+        
+        Database.database().reference().childByAutoId().setValue(x)
+        
+        
+        let mat = pointOfView.transform
+        let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33)
+        let currentPosition = pointOfView.position + (dir * 0.1)
+        if buttonHighlighted {
+            if let previousPoint = previousPoint {
+                let line = lineFrom(vector: previousPoint, toVector: currentPosition)
+                let lineNode = SCNNode(geometry: line)
+                lineNode.geometry?.firstMaterial?.diffuse.contents = lineColor
+                sceneView.scene.rootNode.addChildNode(lineNode)
+            }
+        }
+        previousPoint = currentPosition
+        glLineWidth(250)
+    }
+    
+    /*
+     // Override to create and configure nodes for anchors added to the view's session.
+     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+     let node = SCNNode()
+     return node
+     }
+     */
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Present an error message to the user
+        
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        
+    }
     
     
+    func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
+        
+        let indices: [Int32] = [0, 1]
+        
+        let source = SCNGeometrySource(vertices: [vector1, vector2])
+        let element = SCNGeometryElement(indices: indices, primitiveType: .line)
+        
+        return SCNGeometry(sources: [source], elements: [element])
+    }
 
-}
+    
+    
+}//eoc
