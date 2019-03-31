@@ -1,27 +1,3 @@
-/**
- * three.js extensions for KIMCHI.
- * @external    THREE
- */
-/**
- * @constructor Object3D
- * @memberOf    external:THREE
- */
-/**
- * @constructor PerspectiveCamera
- * @memberOf    external:THREE
- */
-/**
- * @constructor Vector3
- * @memberOf    external:THREE
- */
-/**
- * @constructor Matrix3
- * @memberOf    external:THREE
- */
-/**
- * @constructor Curve
- * @memberOf    external:THREE
- */
 
 (function (_, THREE) {
     'use strict';
@@ -117,14 +93,6 @@
      *   from the given width and height. See {@link
      *   http://threejs.org/docs/#Reference/Cameras/PerspectiveCamera} for the
      *   other properties.
-     * @param    {Object} options
-     * @param    {Number} [options.width] If given, height must also be given
-     * @param    {Number} [options.height] If given, width must also be given.
-     * @param    {Number} [options.fov]
-     * @param    {Number} [options.near]
-     * @param    {Number} [options.far]
-     * @alias    update
-     * @instance
      * @memberOf external:THREE.PerspectiveCamera
      */
     THREE.PerspectiveCamera.prototype.update = function (options) {
