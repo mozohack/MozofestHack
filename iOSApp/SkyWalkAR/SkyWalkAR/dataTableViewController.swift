@@ -42,7 +42,5 @@ class dataTableViewController: UIViewController,UITableViewDelegate, UITableView
         
         return cell
     }
-    
-
 
 }
