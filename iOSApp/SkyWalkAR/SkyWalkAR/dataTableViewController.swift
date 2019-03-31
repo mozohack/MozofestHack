@@ -53,8 +53,6 @@ class dataTableViewController: UIViewController,UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

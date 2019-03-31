@@ -51,14 +51,13 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         //change the positions to a much better location in this room for pitching.
         let position1 = SCNVector3(0,0,-0.58)
         let position2 = SCNVector3(-1.27,-0,1.08)
-        let position3 = SCNVector3(2.18,0,-1.7)
+        let position3 = SCNVector3(-2.18,0,-1.7)
         let position4 = SCNVector3(-5.32,0,-2.28)
         let position5 = SCNVector3(6.12,0,-3.50)
         let position6 = SCNVector3(-30.22,0,-5.30)
-        let position7 = SCNVector3(10.42,0,-7.77)
-        let position8 = SCNVector3(-20.50,0,-11.09)
+        let position7 = SCNVector3(10.42,0,-3.77)
+        let position8 = SCNVector3(-13.50,0,-9.09)
         let position9 = SCNVector3(x: -0.3, y: -0.3, z: -0.3)
-        
         
         //give a position to the node
         let mercury = planet1(at: position1)
@@ -86,7 +85,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         
         //random stars.
         // stars are not created properly create more stars in other locations.
-        for _ in 1...250{
+        for _ in 1...400{
             
             let lowerValue = -15
             let upperValue = 5
@@ -336,7 +335,7 @@ class ViewController: UIViewController,ARSCNViewDelegate {
         
     }
     
-    
+    //starts creating a path as soon as they detect the connection is lost.
     func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
         
         let indices: [Int32] = [0, 1]
