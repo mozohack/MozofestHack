@@ -1,5 +1,5 @@
 /**
- * This algorithm is from {@link
+ * Algorithm link
  *   http://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf}.
  */
 
