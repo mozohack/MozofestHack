@@ -12,6 +12,10 @@ class databaseTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
     
+    @IBOutlet weak var xlab: UILabel!
+    @IBOutlet weak var ylab: UILabel!
+    @IBOutlet weak var zlab: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
